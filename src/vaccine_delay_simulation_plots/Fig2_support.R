@@ -284,8 +284,11 @@ plot_f2p1_collapsed <- function(f2p1_data){
                       #KANDINSKY
                       #scale_fill_manual(values = rev(c("#3b7c70", "#ce9642", "#898e9f", "#3b3a3e")),
                       
-                      labels = c("Unvaccinated", 'One dose',
-                                 'Two doses'
+                      #labels = c("Unvaccinated", 'One dose',
+                      #           'Two doses'
+                      #Technically we want:
+                      labels = c("No vaccine \nprotection", '> 21 days post \nfirst dose',
+                                            '> 7 days post \nsecond dose'
                       )) +
     
     theme(axis.text=element_text(size=rel(1.2)),
@@ -1507,10 +1510,11 @@ plot_f2p3 <- function(f2p3_data){
     geom_col(data = filter(f2p3_data, type == "counterfactual"), aes(x = date+6, group = type, fill = type), width = 10) +
     theme_classic() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
-    scale_y_continuous(expand = c(0, 0), limits = c(0,0.08)) + 
+    scale_y_continuous(expand = c(0, 0), limits = c(0,0.09),
+                       breaks=c(0.02, 0.04, 0.06, 0.08)) + 
     scale_x_date(date_breaks = "1 month", date_labels = "%b %y") +
     labs(fill = "Strategy", y = "Population average risk of \nhospitalisation given infection", x = "Date") +
-    geom_hline(yintercept = c(0.02, 0.04, 0.06), color = "black", alpha = 0.15) +
+    geom_hline(yintercept = c(0.02, 0.04, 0.06, 0.08), color = "black", alpha = 0.15) +
     #facet_grid(rows = vars(outcome),
     #           labeller = labeller(outcome = outcome.labs)) +
     scale_fill_manual(breaks = c("fit", "counterfactual"),

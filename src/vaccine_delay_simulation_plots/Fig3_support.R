@@ -114,7 +114,11 @@ plot_f3 <- function(f3_data){
     labs(fill = "Vaccination status", y = "Daily hospital admissions", x = "Date") +
     scale_fill_manual(values = c("unvaccinated" ="lightsteelblue", "waned_protection" = "#26828E", "full_protection" = "#482878", "partial_protection" = "#FDE725"),
                       breaks = c("unvaccinated", "partial_protection", "full_protection", "waned_protection"),
-                      labels = c("Unvaccinated", 'One dose', 'Full second dose \nprotection', 'Reduced second \ndose protection')
+                      labels = c(#"Unvaccinated", 
+                                 #'One dose',
+                                 "No vaccine \nprotection",
+                                 "> 21 days post \nfirst dose", 
+                                 'Full second dose \nprotection', 'Reduced second \ndose protection')
                       ) +
     theme(axis.text=element_text(size=rel(1.2)),
           axis.title=element_text(size=rel(1.3)),
@@ -173,7 +177,9 @@ plot_f3_collapsed <- function(f3_data){
     labs(fill = "Vaccination status", y = "Daily hospital admissions", x = "Date") +
     scale_fill_manual(values = c("Unvaccinated" ="lightsteelblue", "Two_Doses" = "#482878", "One_Dose" = "#FDE725"),
                       breaks = c("Unvaccinated", "One_Dose", "Two_Doses"),
-                      labels = c("Unvaccinated", 'One dose', 'Two doses')
+                      #labels = c("Unvaccinated", 'One dose', 'Two doses')
+                      labels = c("No vaccine \nprotection", '> 21 days post \nfirst dose',
+                      '> 7 days post \nsecond dose')
     ) +
     theme(axis.text=element_text(size=rel(1.2)),
           axis.title=element_text(size=rel(1.3)),
@@ -400,7 +406,9 @@ plot_f3_SI_hosp_dist <- function(f3_data){
     labs(fill = "Vaccination status", y = "Daily hospital admissions", x = "Date") +
     scale_fill_manual(values = c("Unvaccinated" ="lightsteelblue", "Two_Doses" = "#482878", "One_Dose" = "#FDE725"),
                       breaks = c("Unvaccinated", "One_Dose", "Two_Doses"),
-                      labels = c("Unvaccinated", 'One dose', 'Two doses')
+                      #labels = c("Unvaccinated", 'One dose', 'Two doses')
+                      labels = c("No vaccine \nprotection", '> 21 days post \nfirst dose',
+                                 '> 7 days post \nsecond dose')
     ) +
     theme(axis.text=element_text(size=rel(1.2)),
           axis.title=element_text(size=rel(1.3)),

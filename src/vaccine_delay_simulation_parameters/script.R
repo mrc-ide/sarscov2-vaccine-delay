@@ -1,8 +1,8 @@
 source("global_util.R")
 source("global_vaccine.R")
 
-version_check("sircovid", "0.13.10")
-version_check("spimalot", "0.7.10")
+version_check("sircovid", "0.13.15")
+version_check("spimalot", "0.7.11")
 
 date <- as.Date(date_of_fits)
 

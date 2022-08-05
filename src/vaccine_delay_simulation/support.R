@@ -292,8 +292,8 @@ prepare_parameter_update1 <- function(region, pars_simulation, combined,
     
     ## set %PF in CHW / CHR <-  80+
     prop_pfizer <- c(prop_pfizer, rep(prop_pfizer[17], 2))
-    # 100% PF in 0-40
-    prop_pfizer[sircovid:::sircovid_age_bins()$end < 40] <- 1
+    # 100% PF in 0-10
+    prop_pfizer[sircovid:::sircovid_age_bins()$end < 10] <- 1
     #browser()
     ## Note that we do not change efficacy to allow for differences in future uptake
     average_vacc_efficacy_alpha <-
